@@ -1,0 +1,35 @@
+[project]
+name = "XSS_detector"
+version = "0.1.0"
+description = "XSS detection Project"
+authors = [
+    {name = "Your Name", email = "you@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.104.0",
+    "uvicorn>=0.23.2",
+    "requests>=2.31.0",
+    "bs4>=0.0.2",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.4.2",
+    "pydantic-settings>=2.0.3",
+    "jinja2>=3.1.2",
+    "markupsafe>=2.1.3",
+    "torch==2.3.1",
+    "torchvision==0.18.1",
+    "torchaudio==2.3.1",
+    "gensim==4.3.2",
+    "matplotlib==3.9.0",
+    "pandas==2.2.2",
+    "numpy==1.26.4",
+    "scikit-learn==1.6.1"
+]
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
