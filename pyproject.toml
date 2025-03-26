@@ -20,15 +20,20 @@ dependencies = [
     "torch==2.3.1",
     "torchvision==0.18.1",
     "torchaudio==2.3.1",
-    "gensim==4.3.2",
-    "matplotlib==3.9.0",
-    "pandas==2.2.2",
-    "numpy==1.26.4",
-    "scikit-learn==1.6.1"
+    "matplotlib",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "gensim (>=4.3.3,<5.0.0)",
 ]
 
 [tool.poetry]
 package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+notebook = "^7.3.3"
+ipykernel = "^6.29.5"
+cython = "^3.0.12"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
