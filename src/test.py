@@ -4,7 +4,7 @@ import time
 
 endpoint = 'http://127.0.0.1:5555/vuln_backend/1.0/endpoint/'
 
-f = open("./XSS_dataset.csv", "r")
+f = open("./XSS_dataset.csv", "r", encoding="utf-8")
 lines = f.readlines()
 
 for line in lines:
