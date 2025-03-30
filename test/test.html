@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery XSS Examples (CVE-2020-11022)</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<script>
+  function test(n, jq){
+      sanitizedHTML = window.name || '<p>default</p>';
+      if(jq){
+          $('#div').html(sanitizedHTML);
+      }else{
+          document.getElementById('div').innerHTML = sanitizedHTML;
+      }
+  }
+
+  window.onload = function(){
+    test(0, true); // true = jQuery
+  }
+</script>
+
+<body>
+  <div id="div"></div>
+</body>
+</html>

