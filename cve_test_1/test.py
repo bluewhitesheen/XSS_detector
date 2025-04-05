@@ -50,9 +50,12 @@ async def test_payload(playwright, file_path: str, payload: str) -> bool:
     return context.alert_triggered
 
 async def main():
-    html_path = "http://127.0.0.1:5500/test/test.html"  # ← 請改成實際路徑
+    html_path = "http://127.0.0.1:5500/cve_test_1/test.html"
+
 
     async with async_playwright() as playwright:
+
+        # 測試 Payloads
         print("=== 開始測試 Payloads ===")
         for i, payload in enumerate(bypass_payloads):
             try:

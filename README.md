@@ -1,5 +1,9 @@
 # XSS detector
 
-* 記得要設定 poetry 新增 .venv 讓 vscode 選擇 (Mac only)
-* 否則乖乖用 conda + requirements.txt 來弄 vscode 環境
+* 目前都統一使用 conda 來 build env
+* pip install -r requirements.txt 完成之後要裝 playwright 的 broswer driver
+
+# 弄一些 XSS 不同的 payload 類型來當作多樣性，並對這些多樣性做語法測試
+# 用 CVE_test_1: 2020-11022 來當真實環境背書
+
     
