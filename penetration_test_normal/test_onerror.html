@@ -19,12 +19,11 @@
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const input = params.get("input") || window.name || "";
-
-    // 3. 測試 img src + onerror 屬性注入
+    const input = window.name || params.get("input") || "";
+  
     const img = document.getElementById("img-target");
-    img.setAttribute("src", input);
-    img.setAttribute("onerror", input);
+    img.setAttribute("src", "invalid.png");  // 保證會錯誤
+    img.setAttribute("onerror", input);      // payload 為 handler，例如 alert('XSS')
   </script>
 </body>
 </html>
