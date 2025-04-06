@@ -154,21 +154,23 @@ class XSSClassifier(nn.Module):
 
         return output
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = Word2Vec.load("../res/word2vec.model")
-xss_model = XSSClassifier(128, 64, 2, 100) 
-xss_model.to(device)  # 移到 GPU 或 CPU
-xss_model.load_state_dict(torch.load("../res/best_model.pth"))  # 載入最佳模型
-xss_model.eval()
+class XSSDetector:
+    def __init__(self, model_path, word2vec_path, device=None):
+        self.device = device or torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.word2vec = Word2Vec.load(word2vec_path)
+        self.model = XSSClassifier(128, 64, 2, 100)
+        self.model.to(self.device)
+        self.model.load_state_dict(torch.load(model_path))
+        self.model.eval()
 
-def is_xss(payload):
-    with torch.no_grad():
-        processed_payload = preprocess_payload(payload)
-        tokens = custom_tokenize(processed_payload)
-        xss_vector = tokens_to_vectors(tokens, model).unsqueeze(0).to(device)
-        output = xss_model(xss_vector)
-        _, predicted = torch.max(output, 1)
-        return predicted.item()
+    def is_xss(self, payload):
+        with torch.no_grad():
+            processed_payload = preprocess_payload(payload)
+            tokens = custom_tokenize(processed_payload)
+            xss_vector = tokens_to_vectors(tokens, self.word2vec).unsqueeze(0).to(self.device)
+            output = self.model(xss_vector)
+            _, predicted = torch.max(output, 1)
+            return predicted.item()
 
 
 

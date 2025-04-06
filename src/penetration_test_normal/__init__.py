@@ -1,1 +1,1 @@
-from .test import test, main, test_payload
+from .test import main, test_payload
