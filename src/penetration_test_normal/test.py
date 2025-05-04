@@ -5,9 +5,13 @@ from playwright.async_api import async_playwright
 # 要測試的 payload 列表
 all_payloads = {}
 
-f = open("res/llm_output.txt", "r", encoding="utf-8")
-all_payloads = {}
-all_payloads["innerHTML"] = f.readlines()
+all_payloads["innerHTML"] = []
+with open("res/llm_output/llm_output_05032142.txt", "rb") as f:
+    for line in f.readlines():
+        try: 
+            payload = line.decode("utf-8").strip()
+            all_payloads["innerHTML"].append(payload)
+        except UnicodeDecodeError: continue
 all_payloads["innerHTML"] = [payload.strip() for payload in all_payloads["innerHTML"]]
 
 # all_payloads["onerror"] = [
@@ -62,8 +66,6 @@ async def main():
                     result = await test_payload(playwright, html_path, payload)
                     if result:
                         print(f"[{i}] Triggered | {payload}")
-                    else:
-                        print(f"[{i}] Not Triggered | {payload}")
                 except Exception as e:
                     print(f"[{i}] Error! | Payload: {payload}")
                     print(f"Error: {e}")

