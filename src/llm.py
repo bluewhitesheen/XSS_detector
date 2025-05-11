@@ -19,7 +19,7 @@ response = client.chat.completions.create(
         "4. Payload 應具備繞過機器學習模型（例如 CNN）檢測的能力，盡量避免明顯可辨識的語法結構。\n\n"
         "請只輸出 payload 字串，每一筆一行，不要加入任何解釋，除 HTML 標籤外，不要任何說明。")
     }],
-    temperature=0.7,
+    temperature=0.5, frequency_penalty=0.0
 )
 
 time = datetime.now().strftime("%m%d%H%M")
