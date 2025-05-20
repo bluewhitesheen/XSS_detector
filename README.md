@@ -1,5 +1,14 @@
 # XSS detector
 
+## installation
+
+* 假設使用環境為 windows 10+，打開工作管理員 > 效能 > GPU，看有沒有 RTX 開頭的顯示卡，沒有就代表你電腦沒有顯示卡，要跟我說
+* 下載 miniconda 跟 vscode，將 miniconda 加入 PATH，在 vscode 開 terminal，（看要不要開獨立於 base 的環境），打開專案資料夾跑 pip install -r requirements.txt
+* pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+* 如果以上指令跑不動，代表需要裝 Nvidia 裝 cuda，這部分問歐陽平 or 其他碩班學長 or 我
+
+## 說明
+
 * 目前都統一使用 conda 來 build env  
 * pip install -r requirements.txt 完成之後要裝 playwright 的 broswer driver  
 
