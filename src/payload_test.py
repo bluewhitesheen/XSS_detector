@@ -6,8 +6,8 @@ from playwright.async_api import async_playwright
 
 async def main():
     detector = XSSDetector("res/best_model.pth", "res/word2vec.model")
-    file_read = open("res/llm_output/llm_output_05111747.txt", "r")
-    success_payloads = open("res/success/success_payloads_05111747.txt", "a+")
+    file_read = open("res/llm_output/result.txt", "r")
+    success_payloads = open("res/success/success_payloads_06080309.txt", "a+")
     success_payloads.seek(0)
     success_payloads_set = set(success_payloads.read().splitlines())
     payloads = file_read.readlines()

